@@ -7,6 +7,14 @@ const Rock = 1;
 const Paper = 2;
 const Scissors = 3;
 
-let computerPlay = (max) => {
-  console.log( Math.ceil(Math.random() * max));
+
+let computerPlay = () => {
+  let randomNumber = Math.ceil(Math.random() * 3);
+  if (randomNumber === 1) {
+    console.log('Rock');
+  } else if (randomNumber === 2) {
+    console.log('Paper')
+  } else if (randomNumber === 3) {
+    console.log('Scissors')
+  }
 }
