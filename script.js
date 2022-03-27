@@ -18,3 +18,9 @@ let computerPlay = () => {
     console.log('Scissors')
   }
 }
+
+
+// create a function that plays a single round or RPS.
+// two parameters playerSelection and computerSelection
+// returns string that declares the winner of round
+// make playerSelection case-insensitive
