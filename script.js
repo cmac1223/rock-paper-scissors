@@ -85,9 +85,9 @@ let playGame = (playerSelection, computerSelection) => {
 // create a function game that runs playGame 5 times using a loop
 // The first goal is to run function i times.
 
-let game = () => {
-  for (let i = 0; i < 5; i++) {
-    let playerSelection = prompt('Select Rock, Paper, or Scissors')
-    playGame(playerSelection)
-  }
-}
+// let game = () => {
+//   for (let i = 0; i < 5; i++) {
+//     let playerSelection = prompt('Select Rock, Paper, or Scissors')
+//     playGame(playerSelection)
+//   }
+// }
