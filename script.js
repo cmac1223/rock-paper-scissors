@@ -84,6 +84,7 @@ let playGame = (playerSelection, computerSelection) => {
 
 // create a function game that runs playGame 5 times using a loop
 // The first goal is to run function i times.
+// Create some type of counter variable to keep track of round outcome.
 
 let game = () => {
   for (let i = 0; i < 2; i++) {
