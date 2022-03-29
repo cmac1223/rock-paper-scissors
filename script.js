@@ -11,13 +11,13 @@ const Scissors = 3;
 let computerPlay = () => {
   let randomNumber = Math.ceil(Math.random() * 3);
   if (randomNumber === 1) {
-    // console.log('ROCK');
+    // console.log['ROCK');
     return 'ROCK'
   } else if (randomNumber === 2) {
-    // console.log('PAPER')
+    // console.log['PAPER')
     return 'PAPER'
   } else if (randomNumber === 3) {
-    // console.log('SCISSORS')
+    // console.log['SCISSORS')
     return 'SCISSORS'
   }
 }
@@ -34,45 +34,60 @@ let playGame = (playerSelection, computerSelection) => {
   computerSelection = computerPlay();
   playerSelection2 = playerSelection.toUpperCase()
 
-  // console.log(playerSelection2)
+  // console.log(playerSelection2]
   // console.log(computerSelection)
 
   // Case where player select Paper.
   if (playerSelection2 === 'PAPER' && computerSelection === 'PAPER') {
-    return ('Tied! please go again.')
+    a = ['Tied! please go again.', 0];
+    return a;
   }
   if (playerSelection2 === 'PAPER' && computerSelection === 'ROCK') {
-    return ('You Won! Paper beats Rock.')
+    a = ['You Won! Paper beats Rock.', 1];
+    return a;
   }
   if (playerSelection2 === 'PAPER' && computerSelection === 'SCISSORS') {
-    return ('You Lose! Scissors beats Paper.')
+    a = ['You Lose! Scissors beats Paper.', 2];
+    return a;
   }
 
 
   // Case where player select Rock.
   if (playerSelection2 === 'ROCK' && computerSelection === 'ROCK') {
-    return ('Tied! please go again.')
+    a = ['Tied! please go again.', 0];
+    return a;
   }
   if (playerSelection2 === 'ROCK' && computerSelection === 'PAPER') {
-    return ('You Lose! Paper beats Rock.')
+    a = ['You Lose! Paper beats Rock.', 2];
+    return a;
   }
   if (playerSelection2 === 'ROCK' && computerSelection === 'SCISSORS') {
-    return ('You Won! Rock beats Scissors.')
+    a = ['You Won! Rock beats Scissors.', 1];
+    return a;
   }
 
 
   // Case where player select Scissors.
   if (playerSelection2 === 'SCISSORS' && computerSelection === 'ROCK') {
-    return ('You Lose! Rock beats Scissors.')
+    a = ['You Lose! Rock beats Scissors.', 2];
+    return a;
   }
   if (playerSelection2 === 'SCISSORS' && computerSelection === 'PAPER') {
-    return ('You Won! Scissors beats Paper.')
+    a = ['You Won! Scissors beats Paper.', 1];
+    return a;
   }
   if (playerSelection2 === 'SCISSORS' && computerSelection === 'SCISSORS') {
-    return ('Tied! please go again.')
+    a = ['Tied! please go again.', 0];
+    return a;
   }
+}
 
+// create a function game that runs playGame 5 times using a loop
+// The first goal is to run function i times.
 
-  
-
+let game = () => {
+  for (let i = 0; i < 5; i++) {
+    let playerSelection = prompt('Select Rock, Paper, or Scissors')
+    playGame(playerSelection)
+  }
 }
