@@ -85,9 +85,14 @@ let playGame = (playerSelection, computerSelection) => {
 // create a function game that runs playGame 5 times using a loop
 // The first goal is to run function i times.
 
-// let game = () => {
-//   for (let i = 0; i < 5; i++) {
-//     let playerSelection = prompt('Select Rock, Paper, or Scissors')
-//     playGame(playerSelection)
-//   }
-// }
+let game = () => {
+  for (let i = 0; i < 2; i++) {
+    let playerSelection = prompt('Select Rock, Paper, or Scissors')
+    playerSelection2 = playerSelection.toUpperCase()
+    if (playerSelection2 === 'ROCK' || playerSelection2 === 'PAPER' || playerSelection2 === 'SCISSORS') {
+      playGame(playerSelection2)
+      // attempting to pull the return value from playGame function.
+      console.log(a);
+    } else alert('You must select Rock, Paper, Scissors')
+  }
+}
