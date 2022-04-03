@@ -39,7 +39,7 @@ let playGame = (playerSelection, computerSelection) => {
 
   // Case where player select Paper.
   if (playerSelection2 === 'PAPER' && computerSelection === 'PAPER') {
-    a = ['Tied! please go again.', 0];
+    a = ['Tied!', 0];
     return a;
   }
   if (playerSelection2 === 'PAPER' && computerSelection === 'ROCK') {
@@ -54,7 +54,7 @@ let playGame = (playerSelection, computerSelection) => {
 
   // Case where player select Rock.
   if (playerSelection2 === 'ROCK' && computerSelection === 'ROCK') {
-    a = ['Tied! please go again.', 0];
+    a = ['Tied!', 0];
     return a;
   }
   if (playerSelection2 === 'ROCK' && computerSelection === 'PAPER') {
@@ -77,7 +77,7 @@ let playGame = (playerSelection, computerSelection) => {
     return a;
   }
   if (playerSelection2 === 'SCISSORS' && computerSelection === 'SCISSORS') {
-    a = ['Tied! please go again.', 0];
+    a = ['Tied!', 0];
     return a;
   }
 }
@@ -86,14 +86,38 @@ let playGame = (playerSelection, computerSelection) => {
 // The first goal is to run function i times.
 // Create some type of counter variable to keep track of round outcome.
 
+let winnerCounter = 0;
+let loserCounter = 0;
+let tiedCounter = 0;
+
 let game = () => {
-  for (let i = 0; i < 2; i++) {
+  for (let i = 1; i <= 3; i++) {
     let playerSelection = prompt('Select Rock, Paper, or Scissors')
     playerSelection2 = playerSelection.toUpperCase()
     if (playerSelection2 === 'ROCK' || playerSelection2 === 'PAPER' || playerSelection2 === 'SCISSORS') {
       playGame(playerSelection2)
-      // attempting to pull the return value from playGame function.
-      console.log(a);
+      if (a[1] === 1) {
+        winnerCounter++
+        console.log(`round ${i} ${a[0]}`)
+      } else if (a[1] === 2) {
+        loserCounter++
+        console.log(`round ${i} ${a[0]}`)
+      } else if (a[1] === 0) {
+        tiedCounter++
+        console.log(`round ${i} ${a[0]}`)
+      }
+
     } else alert('You must select Rock, Paper, Scissors')
   }
+  // totalling up the final score.
+  if (winnerCounter > (loserCounter && tiedCounter)) {
+    console.log(`Winner!! you won ${winnerCounter} games, lost ${loserCounter}, and tied ${tiedCounter} out of 3 rounds `)
+  } else if ((loserCounter > winnerCounter && tiedCounter)) {
+    console.log(`Loser!! you lost ${loserCounter} games, won ${winnerCounter}, and tied ${tiedCounter} out of 3 rounds `)
+  } else if ((tiedCounter >= loserCounter && winnerCounter)) {
+    console.log(`Tied!! you tied ${tiedCounter} times`)
+  }
+  winnerCounter = '';
+  loserCounter = '';
+  tiedCounter = '';
 }
