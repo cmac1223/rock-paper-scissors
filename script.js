@@ -30,27 +30,20 @@ let computerPlay = () => {
 
 
 let playGame = (playerSelection, computerSelection) => {
-  // debugger;
   computerSelection = computerPlay();
   playerSelection2 = playerSelection.toUpperCase()
-
-  // console.log(playerSelection2]
-  // console.log(computerSelection)
 
   // Case where player select Paper.
   if (playerSelection2 === 'PAPER' && computerSelection === 'PAPER') {
     a = [' Tied!', 0];
-    // console.log(a[0]);
     return a;
   }
   if (playerSelection2 === 'PAPER' && computerSelection === 'ROCK') {
     a = [' You Won! Paper beats Rock.', 1];
-    // console.log(a[0]);
     return a;
   }
   if (playerSelection2 === 'PAPER' && computerSelection === 'SCISSORS') {
     a = [' You Lose! Scissors beats Paper.', 2];
-    // console.log(a[0]);
     return a;
   }
 
@@ -58,17 +51,14 @@ let playGame = (playerSelection, computerSelection) => {
   // Case where player select Rock.
   if (playerSelection2 === 'ROCK' && computerSelection === 'ROCK') {
     a = ['Tied!', 0];
-    // console.log(a[0]);
     return a;
   }
   if (playerSelection2 === 'ROCK' && computerSelection === 'PAPER') {
     a = ['You Lose! Paper beats Rock.', 2];
-    // console.log(a[0]);
     return a;
   }
   if (playerSelection2 === 'ROCK' && computerSelection === 'SCISSORS') {
     a = ['You Won! Rock beats Scissors.', 1];
-    // console.log(a[0]);
     return a;
   }
 
@@ -76,17 +66,14 @@ let playGame = (playerSelection, computerSelection) => {
   // Case where player select Scissors.
   if (playerSelection2 === 'SCISSORS' && computerSelection === 'ROCK') {
     a = ['You Lose! Rock beats Scissors.', 2];
-    // console.log(a[0]);
     return a;
   }
   if (playerSelection2 === 'SCISSORS' && computerSelection === 'PAPER') {
     a = ['You Won! Scissors beats Paper.', 1];
-    // console.log(a[0]);
     return a;
   }
   if (playerSelection2 === 'SCISSORS' && computerSelection === 'SCISSORS') {
     a = ['Tied!', 0];
-    // console.log(a[0]);
     return a;
   }
 }
@@ -101,13 +88,13 @@ let tiedCounter = 0;
 
 let game = (e) => {
   div4.innerText = ''
-  // debugger;
+  
   let playerSelection = e.target.innerText
   playerSelection2 = playerSelection.toUpperCase()
 
   if (playerSelection2 === 'ROCK' || playerSelection2 === 'PAPER' || playerSelection2 === 'SCISSORS') {
     playGame(playerSelection2)
-    // debugger;
+
     if (a[1] === 1) {
       winnerCounter++
       div3.innerText = ` ${a[0]}`
@@ -126,19 +113,15 @@ let game = (e) => {
 
   // totalling up the final score.
   if (winnerCounter === 5) {
+    // dynamically insert the results into the popup
     finalResults.innerText = `Games won ${winnerCounter}, Games lost ${loserCounter}, and Games tied ${tiedCounter} total rounds ${totalRounds}  `
+    // runs the toggle function
     toggleModal();
 
-    winnerCounter = '';
-    loserCounter = '';
-    tiedCounter = '';
   } else if ((loserCounter === 5)) {
     finalResults.innerText = ` Games lost ${loserCounter}, Games won ${winnerCounter}, and Games tied ${tiedCounter} total rounds ${totalRounds} `
     toggleModal();
 
-    winnerCounter = '';
-    loserCounter = '';
-    tiedCounter = '';
   } else if ((tiedCounter)) {
     // endResults.innerText = (`Tied!! you tied ${tiedCounter} times`)
   }
@@ -203,6 +186,7 @@ scissorsButton.innerText = 'Scissors';
 div2.appendChild(scissorsButton);
 
 
+
 // addEventListener to multiple buttons with one function
 // querySelectorAll for each button loop through and call game function
 // e.target.innerText
@@ -213,30 +197,25 @@ buttons.forEach((button) => {
 
 
 
-
+// popup modal 
 const openButton = document.getElementById('trigger-modal');
 const closeButton = document.getElementById('close-modal');
 const backdrop = document.getElementById('backdrop')
 
+// function which allows the popup to render
 function toggleModal() {
-
   const modalDiv = document.querySelector('.popup-modal');
   const backdrop = document.querySelector('.backdrop')
   modalDiv.classList.toggle('show');
   backdrop.classList.toggle('show');
-
-
 }
 
-// openButton.addEventListener('click', toggleModal);
-// closeButton.addEventListener('click', window.location.reload());
 
-function blah() {
+// reset the page
+function reset() {
   window.location.reload();
 }
 
-// const resetButton = document.querySelector('#reset');
-// resetButton.addEventListener('click', blah);
-closeButton.addEventListener('click', blah);
+closeButton.addEventListener('click', reset);
 
 
