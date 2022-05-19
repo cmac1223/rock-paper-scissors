@@ -114,11 +114,13 @@ let game = (e) => {
   // totalling up the final score.
   if (winnerCounter === 5) {
     // dynamically insert the results into the popup
+    finalTitle.innerText = 'CONGRATULATIONS'
     finalResults.innerText = `Games won ${winnerCounter}, Games lost ${loserCounter}, and Games tied ${tiedCounter} total rounds ${totalRounds}  `
     // runs the toggle function
     toggleModal();
 
   } else if ((loserCounter === 5)) {
+    finalTitle.innerText = 'BETTER LUCK NEXT TIME'
     finalResults.innerText = ` Games lost ${loserCounter}, Games won ${winnerCounter}, and Games tied ${tiedCounter} total rounds ${totalRounds} `
     toggleModal();
 
